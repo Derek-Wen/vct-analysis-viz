@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script type="text/javascript" src="app.js">
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+
+<body onload=finalproject()>
+
+        <h1 class="title">VCT: What Makes A Great Player?</h1>
+        <div class="section">DSC 106 Final Project</div>
+        <div class="section">Derek Wen, A16327645</div>
+            <div class="container">VALORANT is a free-to-play first-person tactical hero shooter developed and published by Riot Games. VALORANT Champions Tour (VCT) is the official 
+                esports scene for the game. This dataset explores professional player statistics in VALORANT through visualizations. The main focus is to identify the factors that 
+                contribute to a player's success in VALORANT. First, we will examine the relationship between the number of maps played and a pro player's career performance.</div>
+        
+            <h2 class="container">Does a higher number of maps played result in a higher KDA?</h2>
+            <div class="container">The intuition behind this question is that playing more competitive games leads to greater experience, and consequently, better performance. 
+                KDA (Kill/Death/Assist ratio) is often used to measure a pro player's performance. A scatterplot has been created to visualize the trend between maps played and a pro 
+                player's career KDA. In the scatterplot below, you can hover over each point to see their values and click on the points to change their color to red.</div>
+        
+            <div class="container">i. The color scheme for the plot below uses a combination of black and red, which reflects VALORANT's color scheme. In this case, black is present 
+                throughout, while red is used when a dot is clicked.</div>
+        
+            <div class="container">ii. Mark: Points. Channel: Position.</div>
+
+            <br>
+        
+            <div id="q1">
+                </div>
+                <div id="plot_1" class="center_plot">
+                </div>
+                <br>
+            </div>
+        
+        <h2 class="container">Which teams have the most number of maps played?</h2>
+        <div class="container">As the scatterplot indicates, there seems to be a slight positive trend between KDA and maps played. This relationship can be taken into account when 
+            determining the factors that contribute to a great player. We can use this to find the best teams. To identify the top teams in VCT and understand what sets them apart from the rest, we can analyze the teams with 
+            the most experience, as it can indicate consistent qualification for major events. A button is provided to sort the teams based on maps played, and you can hover over each bar 
+            to turn them red.</div>
+        
+        <div class="container">i. The color scheme for the plot below uses a combination of black and red, which is VALORANT's color scheme. In this case, black is present 
+            throughout, while red is used when the mouse hovers over the bars.</div>
+        
+        <div class="container">ii. Mark: Lines. Channel: Position.</div>
+        
+        <div id="q2">
+        
+            </div>
+            <div id="plot_2" class="center_plot"></div>
+            <button type="button", id="sort_button", class="container_button">Sort me!</button>
+            <br>
+        </div>    
+        </div>
+        
+        <h2 class="container">Do players on a top team share an equal amount of deaths?</h2>
+        <div class="container">Having identified the top teams, we now question whether KDA is an accurate measure of performance. A player may sacrifice themselves more often than 
+            others to lead their team to victory, negatively impacting their KDA. However, they could still be an amazing player regardless. There may be confounding variables when 
+            considering maps played and KDA. To determine if KDA is a good 
+            performance measure, we examine the deaths of players on the top 4 VCT teams.
+        </div>
+
+        <div class="container">
+            NOTE: I have made changes to this plot compared to my proposal. Originally, I had a stacked bar chart in my proposal where the x-axis are the teams and players on the same team 
+            are stacked on each other, but I realized that this would not work
+            for the question I pose here. There would be too many colors to accomodate in the legend (as each color would be a different player on a team since they have their own unique 
+            usernames). Additionally, it would be difficult for the reader to figure out which player is which since they will have to continuously compare each color to the color 
+            on the legend. Therefore, I have created a bar graph where each bar is a player and a different color depending on what team they play. The graph would still follow 
+            the structure required of 2 keys and 1 value: the x-axis is one key (players), the color of the bar is another key (team), and the y-axis is the value (deaths). 
+            Another change I made are the teams since the data from this dataset ends at 2022. In my proposal I put FNATIC, Navi, LOUD, and DRX as they are regarded as 
+            the current top 4 teams. However, the teams I used are OpTic Gaming, Gambit Esports, KRU Esports, and Sentinels.
+        </div>
+        
+        <div class="container">i. The colors used to represent each team consist of their primary logo color. For instance, OpTic Gaming's primary color is green, while 
+            Sentinels use red. This allows readers to quickly and easily identify which teams the players belong to.
+        </div>
+        
+        <div class="container">ii. Mark: Lines. Channel: Position and Color.
+        </div>
+        
+        <div id="q3">
+        
+            </div>
+            <div id="plot_3" class="center_plot"></div>
+            <br>
+        </div>    
+        </div>
+        
+        <h2 class="container">Which country has the highest average ACS? Are players from a certain region better than players from another region?
+        </h2>
+        <div class="container">With variations observed among the deaths of top team players, we turn to another performance metric: ACS (Average Combat Score). This is a rating 
+            assigned by VALORANT based on performance, factoring in other factors such as defuses, multi-kills, first bloods, etc. We will investigate whether a player's region 
+            may determine their greatness by creating a geomap of the average ACS of each country. For those unfamiliar with ACS, pro players generally have an ACS between 113 and 279.
+        </div>
+        
+        <div class="container">i. The color scheme for the plot below uses a combination of light grey and red. This modified VALORANT theme ensures that the map is visible but 
+            does not distract from the red circles representing the magnitude of the average ACS for each country.
+        </div>
+        
+        <div class="container">ii. Marks: Points. Channels: Position and Size.
+        </div>
+        
+        <div id="q4">
+        
+        </div>
+        <div id="plot_4" class="center_plot"></div>
+        <br>
+        </div>    
+        </div>
+        
+        <h2 class="container">How spread out is the ACS for each player in a top region?
+        </h2>
+        <div class="container"> Having examined the regions with the highest average ACS, we now explore the spread of ACS among top regions to determine which players are 
+            more consistent or have a higher skill ceiling. We will focus on major regions with notably high ACS, including the United States, Brazil, Russia, Spain, and South Korea.
+        </div>
+
+        <div class="container"> NOTE: In the project proposal I originally had the United States; however, I decided to add more regions including Brazil, Russia, Spain, and South Korea.
+        </div>
+        
+        <div class="container">i. The color scheme for the plot below uses a combination of black and red, adhering to VALORANT's color scheme. Black is used for lines, while red 
+            with a 0.5 opacity fills the box for better visual representation.
+        </div>
+        
+        <div class="container">ii. Marks: Lines. Channels: Position and Size.
+        </div>
+        
+        <div id="q5">
+        
+        </div>
+        <div id="plot_5" class="center_plot"></div>
+        <br>
+        </div>    
+        </div>
+
+        <h2 class="container">Conclusion
+        </h2>
+        <div class="container"> In conclusion, this project set out to identify the features that make a great player in the game of VALORANT. A variety of visualizations were used to 
+            examine different aspects, such as the relationship between maps played and KDA, the top teams in VCT, the distribution of deaths among players on top teams, the top regions 
+            in VCT, and the regional differences in average ACS. The findings suggest that there may be a slight positive correlation between maps played and KDA, indicating that experience may contribute to a player's 
+            performance. However, the analysis also revealed that there are variations in the number of deaths among players on top teams, suggesting that KDA might not be the best measure 
+            of a player's performance. The regional analysis showed that some countries have higher average ACS scores than others, potentially indicating a difference in skill level 
+            between regions. A further examination of the spread of ACS scores within the top regions revealed varying levels of consistency and skill ceilings among players. Overall, the 
+            analysis suggests that a combination of experience, team dynamics, individual performance metrics, and regional factors contribute to a player's success in VALORANT.
+        </div>
+
+</body>
+</html>
